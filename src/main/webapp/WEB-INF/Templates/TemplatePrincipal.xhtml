@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <!-- Bootstrap -->
+        <h:outputStylesheet name="./css/bootstrap.css"/>
+
+        <!-- Font awesome -->
+        <h:outputStylesheet name="./css/font-awesome.min.css"/>
+
+        <!-- Animate.css -->
+        <h:outputStylesheet name="./css/animate.css"/>
+
+        <!-- Owl-carousel style -->
+        <h:outputStylesheet name="./css/owl.theme.css"/>
+        <h:outputStylesheet name="./css/owl.carousel.css"/>
+
+        <!-- magnific style -->
+        <h:outputStylesheet name="./css/magnific-popup.css"/>
+
+        <!-- Custom stylesheet-->
+        <h:outputStylesheet name="./css/style.css"/>
+        <h:outputStylesheet name="./css/ef-hover.css"/>                                                        
+        <h:outputStylesheet name="./css/responsive.css" />
+
+        <!-- Added google font -->
+        <link href='http://fonts.googleapis.com/css?family=Dosis:400,600,700,800' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'/>
+
+        <!--Fav and touch icons-->
+        <link rel="shortcut icon" href="./images/icons/favicon.ico"/>
+        <link rel="apple-touch-icon" href="./images/icons/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="./images/icons/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="./images/icons/apple-touch-icon-114x114.png"/>
+
+
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        <div id="top">
+            <!--<ui:include src="/WEB-INF/Templates/menu.xhtml"/>-->
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:include src="/WEB-INF/Templates/banner.xhtml"/>
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+
+        <!--JavaScripts-->
+        <h:outputScript library="resources/js/" name="jquery.min.js" target="body"/>
+        <h:outputScript library="resources/js/" name="bootstrap.min.js" target="body"/>
+        <h:outputScript library="resources/js/" name="smoothscroll..js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.scrollTo.min.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.localScroll.min.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.nav.js" target="body"/>
+        <h:outputScript library="resources/js/" name="owl.carousel.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.magnific-popup.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.flexslider-min.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.parallax.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.ajaxchimp.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.matchMedia.js" target="body"/>
+        <h:outputScript library="resources/js/" name="jquery.script.js" target="body"/>
+        <h:outputScript library="resources/js/" name="wow.js" target="body"/>
+        <h:outputScript library="resources/js/" name="easing.js" target="body"/>
+        <h:outputScript library="resources/js/" name="particles.js" target="body"/>
+        <h:outputScript name="https://maps.googleapis.com/maps/api/js?v=3.exp"/>
+        <h:outputScript name="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"/>
+
+    </h:body>
+</html>
