@@ -2185,6 +2185,10 @@ div #l-1{
     padding-top: 15px;
 }
 
+.heigth-section{
+   max-height: 301px;
+}
+
 /*
 =============================================================
   PRUEBA DE CARUSEL 

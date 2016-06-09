@@ -13,32 +13,7 @@ $(window).load(function() {
     $("#faceoff").delay(200).fadeOut("slow");
 });
 
-//-------Appearence of navigation----------
 
-  /*$('header .nav').onePageNav({
-    scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
-    scrollOffset: 1 //Height of Navigation Bar
-  });*/
-
- 
-  //var winWidth = $(window).width();
- /* $(window).scroll(function() {
-    //if (winWidth > 767) {
-      var $scrollHeight = $(window).scrollTop();
-      if ($scrollHeight >= 0) { //  CONDICIONAL PARA DEFINIR EL PUNTAJE DE DE APARICION DEL MENU SEGUN EL SCROLL
-        $('#home').slideDown(400);
-      }else{
-        $('#home').slideUp(400);
-      }
-    //}
-	
-	//got o top
-	  if ($(this).scrollTop() > 200) {
-			$('#go-to-top a').fadeIn('slow');
-		  } else {
-			$('#go-to-top a').fadeOut('slow');
-	  }  
-  });*/
   
   //-------scroll to top---------
   
@@ -119,63 +94,6 @@ $('#myCarousel, #myCarousel2').carousel({
   pause: "null"
 })
 
-//-----------Text Slider on Banner-----------
-
-  /* $('.flex_text').flexslider({
-        animation: "slide",
-    selector: ".slides li",
-    controlNav: false,
-    directionNav: false,
-    slideshowSpeed: 4000,
-    touch: true,
-    useCSS: false,
-    direction: "vertical",
-        before: function(slider){        
-     var height = $('.flex_text').find('.flex-viewport').innerHeight();
-     $('.flex_text').find('li').css({ height: height + 'px' });
-        }   
-    });*/
-
-// ----------initializing the wow.js ---------
-
-    // Animate and WOW Animation
-/*    var wow = new WOW(
-        {
-            //offset: 50,
-            mobile: false
-           // live: true
-        }
-    );
-    wow.init();
-*/
-//------------------video popup---------------
-
-/*$('.play').magnificPopup({
-  disableOn: 700,
-  type: 'iframe',
-  mainClass: 'mfp-fade',
-  removalDelay: 160,
-  preloader: false,
-  fixedContentPos: false
-});
-*/
-    
-// --------------Newsletter-----------------------
-
-/*$(".newsletter-signup").ajaxChimp({
-    callback: mailchimpResponse,
-    url: "http://codepassenger.us10.list-manage.com/subscribe/post?u=6b2e008d85f125cf2eb2b40e9&id=6083876991" // Replace your mailchimp post url inside double quote "".  
-});
-*/
-/*function mailchimpResponse(resp) {
-     if(resp.result === 'success') {
-	 
-        $('.newsletter-success').html(resp.msg).fadeIn().delay(3000).fadeOut();
-        
-    } else if(resp.result === 'error') {
-        $('.newsletter-error').html(resp.msg).fadeIn().delay(3000).fadeOut();
-    }  
-};*/
 
 // --------------Contact Form Ajax request-----------------------
 
