@@ -5,6 +5,9 @@
  */
 package com.planit.lavappweb.controladores;
 
+import com.planit.lavappweb.metodos.MD5;
+import static com.planit.lavappweb.metodos.Sesion.cerrarHttpSesion;
+import static com.planit.lavappweb.metodos.Sesion.iniciarHttpSesion;
 import com.planit.lavappweb.modelos.Usuario_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosUsuario;
 import javax.inject.Named;
@@ -44,16 +47,31 @@ public class SesionCT implements Serializable {
     //Metodos
     public void iniciarSesion() {
         FacesMessage message = new FacesMessage();
-        //usuario = serviciosUsuario.ConsultarUsuarioPorLogin(usuario.getEmail());
-        usuario = serviciosUsuario.consultarUsuarioPorLoginWSCliente(usuario.getEmail());
-        if (!usuario.getEmail().isEmpty()) {
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "" + usuario.getNombre());
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+        MD5 md = new MD5();      
+        String pass = md.getMD5(usuario.getContrasena());
+//        if (serviciosUsuario.consultarExistenciaUsuarioWSCliente(usuario.getEmail())) {
+//            usuario = serviciosUsuario.consultarUsuarioPorLoginWSCliente(usuario.getEmail());
+//            if (usuario.getContrasena().equalsIgnoreCase(pass)) {
+//                if (usuario.getEstado().getIdEstado() != 0) {
+//                    iniciarHttpSesion(usuario);
+//                    message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "" + usuario.getNombre());
+//                    FacesContext.getCurrentInstance().addMessage(null, message);
+//                } else {
+//                    message = new FacesMessage(FacesMessage.SEVERITY_WARN, "La cuenta de usuario esta desactivada", "Imposible iniciar sesion");
+//                    FacesContext.getCurrentInstance().addMessage(null, message);
+//                }
+//            } else {
+//                message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Contraseña incorrecta", "Digite de nuevo su contraseña");
+//                FacesContext.getCurrentInstance().addMessage(null, message);
+//            }
+//        } else {
+//            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario no existente", "");
+//            FacesContext.getCurrentInstance().addMessage(null, message);
+//        }
     }
 
     public void cerrarSesion() {
-
+        cerrarHttpSesion();
     }
 
 }

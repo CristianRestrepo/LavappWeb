@@ -10,7 +10,8 @@
         <h:form>
             <p:messages autoUpdate="true" closable="true" id="msg"/>
             <p:inputText value="#{sesionCT.usuario.email}"></p:inputText>
-            <p:commandButton action="#{sesionCT.iniciarSesion()}" value="probar" update="msg"/>
+            <p:password value="#{sesionCT.usuario.contrasena}"/>
+            <p:commandButton ajax="false" action="#{sesionCT.iniciarSesion()}" value="probar" update="msg"/>
         </h:form>
     </h:body>
 </html>

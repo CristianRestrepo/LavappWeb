@@ -22,13 +22,13 @@ public class Sesion {
     public Sesion() {
     }
 
-    public static void iniciarSesion(Usuario_TO usuario) {
+    public static void iniciarHttpSesion(Usuario_TO usuario) {
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
         httpServletRequest.getSession().setAttribute("Sesion", usuario);
     }
 
-    public static void cerrarSesion() {
+    public static void cerrarHttpSesion() {
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
         httpServletRequest.getSession().invalidate();
