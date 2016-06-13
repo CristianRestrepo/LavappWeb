@@ -28,7 +28,7 @@ public class SesionCT implements Serializable {
 
     //variables
     private Usuario_TO usuario;
-    private final ServiciosUsuario serviciosUsuario = new ServiciosUsuario();
+    private ServiciosUsuario serviciosUsuario = new ServiciosUsuario();
 
     //Constructores
     public SesionCT() {
@@ -47,27 +47,28 @@ public class SesionCT implements Serializable {
     //Metodos
     public void iniciarSesion() {
         FacesMessage message = new FacesMessage();
-        MD5 md = new MD5();      
+        MD5 md = new MD5();
         String pass = md.getMD5(usuario.getContrasena());
-//        if (serviciosUsuario.consultarExistenciaUsuarioWSCliente(usuario.getEmail())) {
-//            usuario = serviciosUsuario.consultarUsuarioPorLoginWSCliente(usuario.getEmail());
-//            if (usuario.getContrasena().equalsIgnoreCase(pass)) {
-//                if (usuario.getEstado().getIdEstado() != 0) {
-//                    iniciarHttpSesion(usuario);
-//                    message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "" + usuario.getNombre());
-//                    FacesContext.getCurrentInstance().addMessage(null, message);
-//                } else {
-//                    message = new FacesMessage(FacesMessage.SEVERITY_WARN, "La cuenta de usuario esta desactivada", "Imposible iniciar sesion");
-//                    FacesContext.getCurrentInstance().addMessage(null, message);
-//                }
-//            } else {
-//                message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Contraseña incorrecta", "Digite de nuevo su contraseña");
-//                FacesContext.getCurrentInstance().addMessage(null, message);
-//            }
-//        } else {
-//            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario no existente", "");
-//            FacesContext.getCurrentInstance().addMessage(null, message);
-//        }
+        usuario = serviciosUsuario.consultarUsuarioPorLogin(usuario.getEmail());
+
+        if (usuario.getIdUsuario() != 0) {
+            if (usuario.getContrasena().equalsIgnoreCase(pass)) {
+                if (usuario.getEstado().getIdEstado() != 0) {
+                    iniciarHttpSesion(usuario);
+                    message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "" + usuario.getNombre());
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                } else {
+                    message = new FacesMessage(FacesMessage.SEVERITY_WARN, "La cuenta de usuario esta desactivada", "Imposible iniciar sesion");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                }
+            } else {
+                message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Contraseña incorrecta", "Digite de nuevo su contraseña");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
+        } else {
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario no existente", "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
     public void cerrarSesion() {

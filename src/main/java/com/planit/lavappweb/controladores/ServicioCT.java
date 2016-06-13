@@ -34,7 +34,6 @@ public class ServicioCT {
     }
     
     //Getter & Setter
-
     public Servicio_TO getServicio() {
         return servicio;
     }

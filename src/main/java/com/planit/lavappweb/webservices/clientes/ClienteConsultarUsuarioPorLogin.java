@@ -6,9 +6,9 @@
 package com.planit.lavappweb.webservices.clientes;
 
 import javax.ws.rs.ClientErrorException;
+import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
 /**
@@ -16,7 +16,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  * [consultarUsuarioPorLogin]<br>
  * USAGE:
  * <pre>
- *        ClienteConsultarUsuarioLogin client = new ClienteConsultarUsuarioLogin();
+ *        ClienteConsultarUsuarioPorLogin client = new ClienteConsultarUsuarioPorLogin();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -26,11 +26,11 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  */
 public class ClienteConsultarUsuarioPorLogin {
     private WebTarget webTarget;
-    private ResteasyClient client;    
+    private Client client;
     private static final String BASE_URI = "http://localhost:8084/LavappService/webresources/";
 
     public ClienteConsultarUsuarioPorLogin() {
-        client = new ResteasyClientBuilder().build();
+        client = ResteasyClientBuilder.newBuilder().build();
         webTarget = client.target(BASE_URI).path("consultarUsuarioPorLogin");
     }
 

@@ -5,12 +5,8 @@
  */
 package com.planit.lavappweb.webservices.implementaciones;
 
-import com.planit.lavappweb.metodos.ServerRequests;
 import com.planit.lavappweb.modelos.Usuario_TO;
-//import com.planit.lavappweb.webservices.clientes.ClienteConsultarExistenciaUsuario;
 import com.planit.lavappweb.webservices.clientes.ClienteConsultarUsuarioPorLogin;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -18,20 +14,14 @@ import java.util.List;
  */
 public class ServiciosUsuario {
 
-    private ServerRequests sr = new ServerRequests();
-    private final Usuario_TO usuario = new Usuario_TO();
-    private final List<Usuario_TO> usuarios = new ArrayList<>();
-    String ruta = sr.BuscarRuta();       
+    public ServiciosUsuario() {
+    }        
     
-    public Usuario_TO consultarUsuarioPorLoginWSCliente(String email){
+    public Usuario_TO consultarUsuarioPorLogin(String email){
         ClienteConsultarUsuarioPorLogin cliente = new ClienteConsultarUsuarioPorLogin();
-        Usuario_TO usuario = cliente.consultarUsuarioPorLogin(Usuario_TO.class, email);
-        return usuario;
+        return cliente.consultarUsuarioPorLogin(Usuario_TO.class, email);
     }
     
-//    public Boolean consultarExistenciaUsuarioWSCliente(String email){
-//        ClienteConsultarExistenciaUsuario cliente = new ClienteConsultarExistenciaUsuario();
-//        boolean existe = cliente.consultarExistenciaUsuario(boolean.class, email);
-//        return existe;
-//    }
+    
+    
 }
