@@ -45,8 +45,9 @@ public class SesionCT implements Serializable {
     }
 
     //Metodos
-    public void iniciarSesion() {
+    public String iniciarSesion() {
         FacesMessage message = new FacesMessage();
+        String ruta = "";
         MD5 md = new MD5();
         String pass = md.getMD5(usuario.getContrasena());
         usuario = serviciosUsuario.consultarUsuarioPorLogin(usuario.getEmail());
@@ -55,6 +56,7 @@ public class SesionCT implements Serializable {
             if (usuario.getContrasena().equalsIgnoreCase(pass)) {
                 if (usuario.getEstado().getIdEstado() != 0) {
                     iniciarHttpSesion(usuario);
+                    ruta = "Dashboard";
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", "" + usuario.getNombre());
                     FacesContext.getCurrentInstance().addMessage(null, message);
                 } else {
@@ -69,10 +71,12 @@ public class SesionCT implements Serializable {
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario no existente", "");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
+        return ruta;
     }
 
-    public void cerrarSesion() {
+    public String cerrarSesion() {
         cerrarHttpSesion();
+        return "Principal";
     }
 
 }
