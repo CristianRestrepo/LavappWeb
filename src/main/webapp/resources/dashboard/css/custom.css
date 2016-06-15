@@ -326,12 +326,13 @@ body .container.body .right_col {
   background: #D9DEE4; }
 
 body {
-  color: #73879C;
-  background: #2A3F54;
-  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.471; }
+  color: #73879C !important;
+  background: #2A3F54 !important;
+  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif !important;
+  font-size: 13px !important ;
+  font-weight: 400 !important;
+  line-height: 1.471 !important; 
+}
 
 .main_container .top_nav {
   display: block;
@@ -4170,3 +4171,20 @@ ul.notifications {
   border: 1px solid #e5e5e5; }
 
 /** /Dropzone.js **/
+
+
+/*==============================================================================
+ESTILOS PARA JSF 
+================================================================================
+*/
+
+.img-logo{
+    width: 155px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-logo-min{
+    display: none;
+    
+}

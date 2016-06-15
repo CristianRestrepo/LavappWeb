@@ -279,3 +279,27 @@ if (typeof NProgress != 'undefined') {
     };
 
 })(jQuery, 'smartresize');
+
+
+/*==============================================================================
+ SCRIPTS PARA PAGINAS JSF DE LAVAPP
+ ===============================================================================
+ */
+
+function logoDash(){
+    var id;
+    id = document.getElementById("img-logo-dash");
+    
+    alert(id);
+    
+    if (id !== null){
+        alert('id diferente de null');
+        
+        if (id.hasClass(".img-logo") === true){
+            id.removeClass(".img-logo").addClass("img-logo-min");
+            alert('encontró la clase img-logo y la remplazo...');
+        }else{
+            id.removeClass(".img-logo-min").addClass("img-logo");
+        }
+    }
+}

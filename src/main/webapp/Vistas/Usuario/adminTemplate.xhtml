@@ -2,11 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <!--ARCHIVOS JS ALOJADOS EN LA CARPETA DASHBOARD-->
         <h:outputStylesheet name="./dashboard/css/bootstrap.min.css"/>
@@ -18,17 +22,19 @@
 
     <body class="nav-md">
 
-        <div class="container body">
+                <div class="container body">
+        <!--<b:container class=" body">-->
+
             <div class="main_container">
 
-                <div id="top">
+                <div id="top_1">
                     <!--<ui:insert name="top">Top</ui:insert>-->
                     <!--MENU SUPERIOR-->   
                     <div class="top_nav">
                         <div class="nav_menu">
                             <nav class="" role="navigation">
                                 <div class="nav toggle">
-                                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                                    <a id="menu_toggle" onclick="logoDash()"><i class="fa fa-bars"></i></a>
                                 </div>
 
                                 <ul class="nav navbar-nav navbar-right">
@@ -129,7 +135,9 @@
                         <div class="col-md-3 left_col">
                             <div class="left_col scroll-view">
                                 <div class="navbar nav_title" style="border: 0;">
-                                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                                    <a href="index.html" class="site_title">
+                                        <img src="../../../../resources/dashboard/images/logolavap--dash.png" id="img-logo-dash" class="img-responsive img-logo" /> 
+                                     </a>
                                 </div>
 
                                 <div class="clearfix"></div>
@@ -140,8 +148,8 @@
                                         <img src="images/img.jpg" alt="..." class="img-circle profile_img"/>
                                     </div>
                                     <div class="profile_info">
-                                        <span>Welcome,</span>
-                                        <h2>John Doe</h2>
+                                        <span>Bienvenido,</span>
+                                        <h2>Pepito Perez</h2>
                                     </div>
                                 </div>
                                 <!-- /menu profile quick info -->
@@ -150,65 +158,58 @@
 
                                 <!-- sidebar menu -->
                                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                                    <div class="menu_section">
-                                        <h3>General</h3>
-                                        <ul class="nav side-menu">
-                                            <li><a><i class="fa fa-dashboard"></i> Inicio <span class="fa fa-chevron-down"></span></a>                                                
+                                    <h:form>
+                                        <div class="menu_section">
+                                            <h3>General</h3>
+                                            <ul class="nav side-menu">
+                                                <li><a><i class="fa fa-dashboard"></i> Inicio </a>                                                
+                                                </li>
+                                                <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li>
+                                                            <h:link outcome="#{barrioCT.modificar()}" >general form</h:link>                                                        
+                                                        </li>                                                        
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-female"></i> Ropa - Prendas <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="general_elements.html">Categoria de Prendas</a></li>
+                                                        <li><a href="media_gallery.html">Sub-prendas</a></li>                                                        
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-map-marker"></i> Lugares <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="tables.html">Estrato</a></li>
+                                                        <li><a href="tables.html">Zona</a></li>
+                                                        <li><a href="tables.html">Ciudad</a></li>
+                                                        <li><a href="tables.html">Barrio</a></li>
+                                                        <li><a href="tables.html">Localidad</a></li>                                                        
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clock-o"></i> Tiempos - Horarios <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="chartjs.html">Jornadas</a></li>
+                                                        <li><a href="chartjs2.html">Horarios</a></li>                                                        
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-clipboard"></i>Pedidos </a>                                                  
+                                                </li>
+                                                <li><a><i class="fa fa-user-plus"></i>Proveedores<span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="fixed_sidebar.html">lorem</a></li>
+                                                        <li><a href="fixed_footer.html">lorem</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a><i class="fa fa-ticket"></i>Descuentos <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li><a href="fixed_sidebar.html">lorem</a></li>
+                                                        <li><a href="fixed_footer.html">lorem</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                                <ul class="nav child_menu">
-                                                    <li><a href="index.html">Dashboard</a></li>
-                                                    <li><a href="index2.html">Dashboard2</a></li>
-                                                    <li><a href="index3.html">Dashboard3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li>
-                                                        <h:link outcome="#{barrioCT.modificar()}" ><a href="">general form</a></h:link>                                                        
-                                                    </li>
-                                                    <li>
-                                                        <a href="form_advanced.html">Advanced Components</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li><a href="general_elements.html">General Elements</a></li>
-                                                    <li><a href="media_gallery.html">Media Gallery</a></li>
-                                                    <li><a href="typography.html">Typography</a></li>
-                                                    <li><a href="icons.html">Icons</a></li>
-                                                    <li><a href="glyphicons.html">Glyphicons</a></li>
-                                                    <li><a href="widgets.html">Widgets</a></li>
-                                                    <li><a href="invoice.html">Invoice</a></li>
-                                                    <li><a href="inbox.html">Inbox</a></li>
-                                                    <li><a href="calendar.html">Calendar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li><a href="tables.html">Tables</a></li>
-                                                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li><a href="chartjs.html">Chart JS</a></li>
-                                                    <li><a href="chartjs2.html">Chart JS2</a></li>
-                                                    <li><a href="morisjs.html">Moris JS</a></li>
-                                                    <li><a href="echarts.html">ECharts</a></li>
-                                                    <li><a href="other_charts.html">Other Charts</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                                                <ul class="nav child_menu">
-                                                    <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                                                    <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-
+                                    </h:form>    
                                 </div>
                                 <!-- /sidebar menu -->
 
@@ -232,8 +233,9 @@
                     </footer>
                     <!--FOOTER-->
                 </div><!--botom-->
-            </div>            
-        </div>
+            </div>     
+        <!--</b:container>-->  
+                </div>
 
     </body>
 
@@ -243,5 +245,5 @@
     <h:outputScript name="./dashboard/js/custom.js"  />
     <!--<h:outputScript name="./dashboard/js/custom.min.js"  />-->
 
- 
+
 </html>
