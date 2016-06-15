@@ -287,20 +287,21 @@ if (typeof NProgress != 'undefined') {
  ===============================================================================
  */
 
-function logoDash(){
-    var id;
-    id = document.getElementById("img-logo-dash");
-    
-    alert(id);
-    
-    if (id !== null){
-        alert('id diferente de null');
-        
-        if (id.hasClass(".img-logo") === true){
-            id.removeClass(".img-logo").addClass("img-logo-min");
-            alert('encontró la clase img-logo y la remplazo...');
-        }else{
-            id.removeClass(".img-logo-min").addClass("img-logo");
+$('#menu_toggle').click(function () {
+    if ($('#img-logo-dash').hasClass('img-logo')) {
+
+        if ($('#img-logo-dash').removeClass('img-logo').addClass('img-logo-min')) {
+            $('.img-logo').css({
+                "display": "none"
+            });
+            $('.img-logo-min').css({
+                "display": "block"
+            });
+//                    alert('cambio de clases hecho');
         }
+
+    } else {
+        $('#img-logo-dash').removeClass('img-logo-min').addClass('img-logo');
+
     }
-}
+});

@@ -4178,13 +4178,19 @@ ESTILOS PARA JSF
 ================================================================================
 */
 
-.img-logo{
-    width: 155px;
+.img-logo{    
+    background: url('../images/logolavap--dash.png') no-repeat ;
+        width: 171px;
+    height: 57px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.img-logo-min{
-    display: none;
-    
+.img-logo-min{    
+    background: url('../images/logo--dash-mini.png') no-repeat ;
+/*    background-repeat: none;*/
+    width: 56px;
+    height: 59px;
+    margin-left: auto;
+    margin-right: auto;
 }
