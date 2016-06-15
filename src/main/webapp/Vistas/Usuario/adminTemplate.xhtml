@@ -22,8 +22,8 @@
 
     <body class="nav-md">
 
-                <div class="container body">
-        <!--<b:container class=" body">-->
+        <div class="container body">
+            <!--<b:container class=" body">-->
 
             <div class="main_container">
 
@@ -137,7 +137,7 @@
                                 <div class="navbar nav_title" style="border: 0;">
                                     <a href="index.html" class="site_title">
                                         <div  id="img-logo-dash" class="img-responsive img-logo" ></div> 
-                                     </a>
+                                    </a>
                                 </div>
 
                                 <div class="clearfix"></div>
@@ -219,7 +219,11 @@
                         <!--MENU LATERAL-->
                     </div>
                     <div id="content" class="left_content">
-                        <ui:insert name="content">Content</ui:insert>
+                        <div class="right_col" role="main" style="">
+                            <div class="">
+                                <ui:insert name="content">Content</ui:insert>
+                            </div>                           
+                        </div>
                     </div>
                 </div>
                 <div id="bottom">
@@ -234,8 +238,8 @@
                     <!--FOOTER-->
                 </div><!--botom-->
             </div>     
-        <!--</b:container>-->  
-                </div>
+            <!--</b:container>-->  
+        </div>
 
     </body>
 
