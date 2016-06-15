@@ -40,7 +40,7 @@ public class ClienteConsultarPaises {
      */
     public <T> T consultarPaises(Class<T> responseType) throws ClientErrorException {
         return webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
-    }
+        }
 
     public void close() {
         client.close();

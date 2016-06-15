@@ -28,10 +28,11 @@ public class SesionCT implements Serializable {
 
     //variables
     private Usuario_TO usuario;
-    private ServiciosUsuario serviciosUsuario = new ServiciosUsuario();
+    private ServiciosUsuario serviciosUsuario;
 
     //Constructores
     public SesionCT() {
+        this.serviciosUsuario = new ServiciosUsuario();
         usuario = new Usuario_TO();
     }
 

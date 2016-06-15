@@ -10,6 +10,7 @@ import com.planit.lavappweb.webservices.implementaciones.ServiciosPais;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -19,6 +20,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "paisCT")
 @ViewScoped
+@ManagedBean
 public class PaisCT {
 
     private Pais_TO pais;
@@ -28,14 +30,15 @@ public class PaisCT {
     public PaisCT() {
         pais = new Pais_TO();
         paises = new ArrayList<>();
+        servicios = new ServiciosPais();
     }
 
     @PostConstruct
     public void init(){
+        paises = servicios.consultarPaises();
     }
     
     //Getters & Setter
-
     public Pais_TO getPais() {
         return pais;
     }
@@ -52,15 +55,21 @@ public class PaisCT {
         this.paises = paises;
     }
     
-    //Metodos
+    //CRUD
     public void registrar(){
        pais = servicios.registrarPais(pais.getNombre());
+       paises = servicios.consultarPaises();
     }
     
     public void modificar(){
         pais = servicios.modificarPais(pais.getIdPais(), pais.getNombre());
+        paises = servicios.consultarPaises();
     }
     
     public void eliminar(){
+        pais = servicios.Eliminar(pais.getIdPais());
+        paises = servicios.consultarPaises();
     }
+    
+    //Metodos
 }

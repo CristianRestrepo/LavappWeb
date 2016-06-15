@@ -8,10 +8,12 @@ package com.planit.lavappweb.webservices.clientes;
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
+
 /**
- * Jersey REST client generated for REST resource:we [eliminarPais]<br>
+ * Jersey REST client generated for REST resource:application [eliminarPais]<br>
  * USAGE:
  * <pre>
  *        ClienteEliminarPais client = new ClienteEliminarPais();
@@ -23,7 +25,6 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  * @author Desarrollo_Planit
  */
 public class ClienteEliminarPais {
-
     private WebTarget webTarget;
     private Client client;
     private static final String BASE_URI = "http://localhost:8084/LavappService/webresources/";
@@ -36,14 +37,35 @@ public class ClienteEliminarPais {
 
     /**
      * @param responseType Class representing the response
+     * @param idPais query parameter
      * @return response object (instance of responseType class)
      */
-    public <T> T eliminarPais(Class<T> responseType) throws ClientErrorException {
+    public <T> T eliminarPais(Class<T> responseType, String idPais) throws ClientErrorException {
+        String[] queryParamNames = new String[]{"idPais"};
+        String[] queryParamValues = new String[]{idPais};
+        ;
+        javax.ws.rs.core.Form form = getQueryOrFormParams(queryParamNames, queryParamValues);
+        javax.ws.rs.core.MultivaluedMap<String, String> map = form.asMap();
+        for (java.util.Map.Entry<String, java.util.List<String>> entry : map.entrySet()) {
+            java.util.List<String> list = entry.getValue();
+            String[] values = list.toArray(new String[list.size()]);
+            webTarget = webTarget.queryParam(entry.getKey(), (Object[]) values);
+        }
         return webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    private Form getQueryOrFormParams(String[] paramNames, String[] paramValues) {
+        Form form = new javax.ws.rs.core.Form();
+        for (int i = 0; i < paramNames.length; i++) {
+            if (paramValues[i] != null) {
+                form = form.param(paramNames[i], paramValues[i]);
+            }
+        }
+        return form;
     }
 
     public void close() {
         client.close();
     }
-
+    
 }

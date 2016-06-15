@@ -23,8 +23,7 @@ public class ServiciosPais {
 
     public Pais_TO registrarPais(String nombre) {
         ClienteRegistrarPais cliente = new ClienteRegistrarPais();
-        Pais_TO pais = cliente.registrarPais(Pais_TO.class, nombre);
-        return pais;
+        return cliente.registrarPais(Pais_TO.class, nombre);
     }
 
     public Pais_TO modificarPais(int idPais, String nombre) {
@@ -32,13 +31,18 @@ public class ServiciosPais {
         return cliente.modificarPais(Pais_TO.class, "" + idPais, nombre);
     }
 
+    public Pais_TO Eliminar(int idPais) {
+        ClienteEliminarPais cliente = new ClienteEliminarPais();
+        return cliente.eliminarPais(Pais_TO.class, "" + idPais);
+    }
+
     public Pais_TO consultarPais(int idPais) {
         ClienteConsultarPais cliente = new ClienteConsultarPais();
         return cliente.consultarPais(Pais_TO.class, "" + idPais);
     }
 
-//    public List<Pais_TO> consultarPaises() {
-//        ClienteConsultarPaises cliente = new ClienteConsultarPaises();
-//        return cliente.consultarPaises();
-//    }
+    public List<Pais_TO> consultarPaises() {
+        ClienteConsultarPaises cliente = new ClienteConsultarPaises();
+        return cliente.consultarPaises(List.class);
+    }
 }
