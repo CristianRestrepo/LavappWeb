@@ -1,16 +1,87 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./../adminTemplate.xhtml">
-
             <ui:define name="content">
-                content
-            </ui:define>
+                <div class="right_col">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>LOCALIDADES</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>                                        
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <h:form id="formularioRegistro" class="form-horizontal"> 
+                                        <div class="form-group">
+                                            <label class="control-label" for="txtNombreLocalidad">Nombre<span class="required">*</span></label>
+                                            <p:inputText class="form-control " required="true" placeholder="Nombre de la ciudad" type="text" id="txtNombreLocalidad"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="SMCiudad">Ciudad<span class="required">*</span></label>
+                                            <p:selectOneMenu style="width: 100%" required="true" id="SMCiudad" >
+                                            </p:selectOneMenu>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
+                                        <p:commandButton type="submit" form="formularioRegistro" update="formularioRegistro" value="Registrar" class="btn btn-success"/>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right form-group">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>LISTA DE LOCALIDADES</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>                                        
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix">                                       
+                                    </div>
+                                </div>
+                                <div class="x_content">
+                                    <h:form>
+                                        <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
+                                        <div class="ln_solid"></div>
+                                        <p:dataTable style="width: 100%" var="localidad" value="#{localidadCT.localidades}" class="table-responsive table table-striped">
+                                            <p:column headerText="Nombre">
 
+                                            </p:column>
+                                            
+                                            <p:column headerText="Ciudad">
+
+                                            </p:column>
+
+                                            <p:column width="15px" headerText="">
+                                                <p:commandButton class="btn btn-info"/>
+                                            </p:column>
+
+                                            <p:column width="15px" headerText="">
+                                                <p:commandButton class="btn btn-danger"/>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </ui:define>
         </ui:composition>
 
     </body>

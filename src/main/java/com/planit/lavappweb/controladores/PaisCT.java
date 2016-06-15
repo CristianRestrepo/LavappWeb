@@ -6,6 +6,7 @@
 package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.modelos.Pais_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServiciosPais;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -22,6 +23,7 @@ public class PaisCT {
 
     private Pais_TO pais;
     private List<Pais_TO> paises;
+    private ServiciosPais servicios;
 
     public PaisCT() {
         pais = new Pais_TO();
@@ -52,9 +54,11 @@ public class PaisCT {
     
     //Metodos
     public void registrar(){
+       pais = servicios.registrarPais(pais.getNombre());
     }
     
     public void modificar(){
+        pais = servicios.modificarPais(pais.getIdPais(), pais.getNombre());
     }
     
     public void eliminar(){

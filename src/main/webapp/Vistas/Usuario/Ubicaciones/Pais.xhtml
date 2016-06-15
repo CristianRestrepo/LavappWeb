@@ -14,7 +14,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>REGISTRO DE PAISES</h2>
+                                    <h2>PAISES</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>                                        
@@ -24,19 +24,48 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <h:form id="formularioRegistro" onsubmit="#{paisCT.registrar()}"> 
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="txtNombrePais">Nombre<span class="required">*</span></label>
-                                        <input class="form-control-static form-control" required="true" placeholder="Nombre del pais" type="text" id="txtNombrePais" value="#{paisCT.pais.nombre}"/>
+                                    <h:form id="formularioRegistro" class="form-horizontal"> 
+                                        <label class="control-label" for="txtNombrePais">Nombre<span class="required">*</span></label>
+                                        <p:inputText class="form-control " required="true" placeholder="Nombre del pais" type="text" id="txtNombrePais" value="#{paisCT.pais.nombre}"/>
                                         <div class="ln_solid"></div>
-                                        <button type="submit" form="formularioRegistro"  class="btn btn-primary" >Cancelar</button>
-                                        <p:commandButton type="submit" form="formularioRegistro" value="Registrar" class="btn btn-success"/>
+                                        <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
+                                        <p:commandButton ajax="false" type="submit" form="formularioRegistro" update="formularioRegistro" action="#{paisCT.registrar()}" value="Registrar" class="btn btn-success"/>
                                     </h:form>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right form-group">
                             <div class="x_panel">
-                                
+                                <div class="x_title">
+                                    <h2>LISTA DE PAISES</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>                                        
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix">                                       
+                                    </div>
+                                </div>
+                                <div class="x_content">
+                                    <h:form>
+                                        <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
+                                        <div class="ln_solid"></div>
+                                        <p:dataTable style="width: 100%" var="pais" value="#{paisCT.paises}" class="table-responsive table table-striped">
+                                            <p:column headerText="Nombre">
+
+                                            </p:column>
+
+                                            <p:column width="15px" headerText="">
+                                                <p:commandButton class="btn btn-info"/>
+                                            </p:column>
+
+                                            <p:column width="15px" headerText="">
+                                                <p:commandButton class="btn btn-danger"/>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </h:form>
+                                </div>
                             </div>
                         </div>
                     </div>
