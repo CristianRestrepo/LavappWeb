@@ -27,10 +27,15 @@ public class PaisCT {
     private List<Pais_TO> paises;
     private ServiciosPais servicios;
 
+    //Variables
+    private int operacion; //Controla el valor
+    private String nombreOperacion;
+    
     public PaisCT() {
         pais = new Pais_TO();
         paises = new ArrayList<>();
         servicios = new ServiciosPais();
+        nombreOperacion = "Registrar";
     }
 
     @PostConstruct
@@ -67,9 +72,28 @@ public class PaisCT {
     }
     
     public void eliminar(){
-        pais = servicios.Eliminar(pais.getIdPais());
+        pais = servicios.eliminarPais(pais.getIdPais());
         paises = servicios.consultarPaises();
-    }
+    } 
     
     //Metodos
+    
+     //Metodos Propios
+    public void metodo() {
+        if (operacion == 0) {
+            registrar();
+        } else if (operacion == 1) {
+            modificar();
+            //Reiniciamos banderas
+            nombreOperacion = "Modificar";
+            operacion  = 0;
+        }
+    }
+
+    public void seleccionarCRUD(int i) {
+        operacion = i;
+        if (operacion == 1) {            
+            nombreOperacion = "Modificar";
+        }
+    }
 }

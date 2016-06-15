@@ -60,25 +60,19 @@
                                             </p:column>
 
                                             <p:column style="width: 60px" headerText="">
-                                                <p:commandLink style="color: white; width: 100%" title="Modificar" class="btn btn-block btn-info">
+                                                <p:commandLink style="color: white; width: 100%" action="#{paisCT.seleccionarCRUD(1)}" title="Modificar" class="btn btn-block btn-info">
                                                     <f:setPropertyActionListener value="#{pais}" target="#{paisCT.pais}"/>
                                                     <i class="fa fa-pencil"/> 
                                                 </p:commandLink>
                                             </p:column>
 
                                             <p:column style="width: 60px" headerText="">
-                                                <p:commandLink style="color: white; width: 100%" action="#{paisCT.eliminar()}" process="@this" update="@form" title="Eliminar" class="btn btn-block btn-danger">
-                                                    <i class="fa fa-trash"/> 
+                                                <p:commandLink style="color: white; width: 100%" action="#{paisCT.eliminar()}" ajax="false" process="@this" update="@form" title="Eliminar" class="btn btn-block btn-danger">
                                                     <f:setPropertyActionListener value="#{pais}" target="#{paisCT.pais}"/>
-                                                    <p:confirm header="Confirmación" message="Está seguro que desea eliminar este pais?" icon="ui-icon-alert" /> 
+                                                    <i class="fa fa-trash"/>                                                     
                                                 </p:commandLink>
                                             </p:column>
-                                        </p:dataTable>
-                                        
-                                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" class="btn btn-success"  />
-                                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" class="btn btn-danger" />
-                                        </p:confirmDialog>
+                                        </p:dataTable>                                       
                                     </h:form>
                                 </div>
                             </div>

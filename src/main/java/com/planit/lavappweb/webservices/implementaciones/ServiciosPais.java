@@ -31,7 +31,7 @@ public class ServiciosPais {
         return cliente.modificarPais(Pais_TO.class, "" + idPais, nombre);
     }
 
-    public Pais_TO Eliminar(int idPais) {
+    public Pais_TO eliminarPais(int idPais) {
         ClienteEliminarPais cliente = new ClienteEliminarPais();
         return cliente.eliminarPais(Pais_TO.class, "" + idPais);
     }
