@@ -29,7 +29,24 @@ public class Pais_TO {
      * Columna nombre
      */
     private String nombre;
-    
+
+    //Getter & Setters
+    public int getIdPais() {
+        return idPais;
+    }
+
+    public void setIdPais(int idPais) {
+        this.idPais = idPais;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+       
     @Override
     public String toString() {
         return "Pais_TO{" + "idPais=" + idPais + ", nombre=" + nombre + '}';
