@@ -38,6 +38,7 @@ public class Ciudad_TO {
 
     //Constructores
     public Ciudad_TO() {
+       departamento = new Departamento_TO();
     }
 
     //Constructor General

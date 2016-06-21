@@ -5,6 +5,8 @@
  */
 package com.planit.lavappweb.controladores;
 
+import com.planit.lavappweb.metodos.Configuracion;
+import static com.planit.lavappweb.metodos.Configuracion.operacion;
 import com.planit.lavappweb.modelos.Pais_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosPais;
 import java.util.ArrayList;
@@ -26,16 +28,16 @@ public class PaisCT {
     private Pais_TO pais;
     private List<Pais_TO> paises;
     private ServiciosPais servicios;
+    private List<String> nombrepaises;
 
-    //Variables
-    private int operacion; //Controla el valor
+    //Variables   
     private String nombreOperacion;
     
     public PaisCT() {
         pais = new Pais_TO();
         paises = new ArrayList<>();
         servicios = new ServiciosPais();
-        nombreOperacion = "Registrar";
+        nombreOperacion = "Registrar";      
     }
 
     @PostConstruct
@@ -59,6 +61,29 @@ public class PaisCT {
     public void setPaises(List<Pais_TO> paises) {
         this.paises = paises;
     }
+
+    public String getNombreOperacion() {
+        return nombreOperacion;
+    }
+
+    public void setNombreOperacion(String nombreOperacion) {
+        this.nombreOperacion = nombreOperacion;
+    }
+
+    public List<String> getNombrepaises() {
+        nombrepaises = new ArrayList<>();
+        for (int i = 0; i < paises.size(); i++) {
+            nombrepaises.add(paises.get(i).getNombre());
+        }
+        return nombrepaises;        
+    }
+
+    public void setNombrepaises(List<String> nombrepaises) {
+        this.nombrepaises = nombrepaises;
+    }
+    
+    
+    
     
     //CRUD
     public void registrar(){
@@ -74,10 +99,9 @@ public class PaisCT {
     public void eliminar(){
         pais = servicios.eliminarPais(pais.getIdPais());
         paises = servicios.consultarPaises();
-    } 
+    }
     
-    //Metodos
-    
+        
      //Metodos Propios
     public void metodo() {
         if (operacion == 0) {
@@ -85,7 +109,7 @@ public class PaisCT {
         } else if (operacion == 1) {
             modificar();
             //Reiniciamos banderas
-            nombreOperacion = "Modificar";
+            nombreOperacion = "Registrar";
             operacion  = 0;
         }
     }

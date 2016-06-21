@@ -38,6 +38,7 @@ public class Departamento_TO {
 
     //Constructores
     public Departamento_TO() {
+        pais = new Pais_TO();
     }
 
     //Constructor General
@@ -49,10 +50,8 @@ public class Departamento_TO {
 
     public Departamento_TO(int idDepartamento) {
         this.idDepartamento = idDepartamento;
-    }
+    }    
     
-    
-
     //Getter and Setter
     public int getIdDepartamento() {
         return idDepartamento;

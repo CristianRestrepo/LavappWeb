@@ -6,6 +6,7 @@
 package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.modelos.Localidad_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServiciosLocalidad;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -22,14 +23,17 @@ public class LocalidadCT {
 
     private Localidad_TO localidad;
     private List<Localidad_TO> localidades;
+    protected ServiciosLocalidad servicios;
 
     public LocalidadCT() {
         localidad = new Localidad_TO();
         localidades = new ArrayList<>();
+        servicios = new ServiciosLocalidad();
     }
 
     @PostConstruct
     public void init() {
+        localidades = servicios.consultarLocalidades();
     }
 
     //Getter & Setter
@@ -51,12 +55,17 @@ public class LocalidadCT {
 
     //Metodos
     public void registrar() {
+        localidad = servicios.registrarLocalidad(localidad.getNombre(), localidad.getCiudad().getIdCiudad());
+        localidades = servicios.consultarLocalidades();
     }
 
     public void modificar() {
+        localidad = servicios.editarLocalidad(localidad.getIdLocalidad(), localidad.getNombre(), localidad.getCiudad().getIdCiudad());
+        localidades = servicios.consultarLocalidades();
     }
 
     public void eliminar() {
-
+        localidad = servicios.eliminarLocalidad(localidad.getIdLocalidad());
+        localidades = servicios.consultarLocalidades();
     }
 }
