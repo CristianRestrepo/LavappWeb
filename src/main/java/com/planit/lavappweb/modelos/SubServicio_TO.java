@@ -39,6 +39,7 @@ public class SubServicio_TO {
     //Constructores
 
     public SubServicio_TO() {
+        servicio = new Servicio_TO();
     }
 
     public SubServicio_TO(int idSubServicio) {
@@ -52,6 +53,8 @@ public class SubServicio_TO {
         this.nombre = nombre;
         this.servicio = servicio;
     }
+    
+    
     
     //Getter and Setter
 

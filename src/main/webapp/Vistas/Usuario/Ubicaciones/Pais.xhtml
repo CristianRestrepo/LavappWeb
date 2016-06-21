@@ -24,7 +24,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <h:form id="formularioRegistro" class="form-horizontal">
+                                    <h:form id="formularioRegistro" class="form-horizontal form-label-left input_mask">
                                         <div class="form-group">
                                             <label class="control-label" for="txtNombrePais">Nombre<span class="required">*</span></label>
                                             <p:inputText class="form-control " required="true" placeholder="Nombre del pais" type="text" id="txtNombrePais" value="#{paisCT.pais.nombre}"/>
@@ -53,7 +53,8 @@
                                     <h:form id="formularioListaPaises" class="form-horizontal">
                                         <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
                                         <div class="ln_solid"></div>
-                                        <p:dataTable id="DTPaises" style="width: 100%" var="pais" value="#{paisCT.paises}" class="table-responsive table table-striped">
+                                        <p:dataTable id="DTPaises" style="width: 100%" 
+                                                     var="pais" value="#{paisCT.paises}" class="table-responsive table table-striped">
                                             <p:column headerText="Nombre">
                                                 <p:outputLabel value="#{pais.nombre}"/>                                               
                                             </p:column>

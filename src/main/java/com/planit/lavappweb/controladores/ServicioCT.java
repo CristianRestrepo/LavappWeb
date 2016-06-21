@@ -6,9 +6,11 @@
 package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.modelos.Servicio_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServiciosServicios;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -18,21 +20,25 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "servicioCT")
 @ViewScoped
+@ManagedBean
 public class ServicioCT {
 
     private Servicio_TO servicio;
     private List<Servicio_TO> servicios;
-    
+    private ServiciosServicios clienteServicio;
+
     public ServicioCT() {
         servicio = new Servicio_TO();
         servicios = new ArrayList<>();
+        clienteServicio = new ServiciosServicios();
     }
-    
+
     @PostConstruct
-    public void init(){
-    
+    public void init() {
+        servicios = clienteServicio.consultarServicios();
+
     }
-    
+
     //Getter & Setter
     public Servicio_TO getServicio() {
         return servicio;
@@ -49,17 +55,22 @@ public class ServicioCT {
     public void setServicios(List<Servicio_TO> servicios) {
         this.servicios = servicios;
     }
-    
+
+ 
     //Metodos
-    public void registrar(){
-    
+    public void consultar() {
+
     }
-    
-    public void modificar(){
-    
+
+    public void registrar() {        
+        servicio = clienteServicio.registrarServicio( servicio.getNombre());        
     }
-    
-    public void eliminar(){
-    
+
+    public void modificar() {
+
+    }
+
+    public void eliminar() {
+
     }
 }

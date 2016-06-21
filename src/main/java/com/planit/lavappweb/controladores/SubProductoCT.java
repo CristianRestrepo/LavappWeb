@@ -5,7 +5,9 @@
  */
 package com.planit.lavappweb.controladores;
 
+import com.planit.lavappweb.modelos.Servicio_TO;
 import com.planit.lavappweb.modelos.SubProducto_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServicioSubServicio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -22,16 +24,18 @@ public class SubProductoCT {
 
     private SubProducto_TO subproducto;
     private List<SubProducto_TO> subproductos;
-    
+
     public SubProductoCT() {
         subproducto = new SubProducto_TO();
         subproductos = new ArrayList<>();
+
     }
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
+
     }
-    
+
     //Getter & Setter
     public SubProducto_TO getSubproducto() {
         return subproducto;
@@ -50,12 +54,12 @@ public class SubProductoCT {
     }
 
     //Metodos
-    public void registrar(){
+    public void registrar() {
     }
-    
-    public void modificar(){
+
+    public void modificar() {
     }
-    
-    public void eliminar(){
+
+    public void eliminar() {
     }
 }

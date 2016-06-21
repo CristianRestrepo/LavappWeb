@@ -6,70 +6,128 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:p="http://primefaces.org/ui">
 
-    <body>
 
-        <ui:composition template="./../adminTemplate.xhtml">
 
-            <ui:define name="content">
-                <div class="right_col" role="main" style="">
-                <div class="">
-                    <div class="page-title">
-                        <div class="title_left">
-                            <h3>Plain Page</h3>
+    <ui:composition template="./../adminTemplate.xhtml">
+
+        <ui:define name="content">
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Productos LavApp</h3>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <p:inputText type="text" class="form-control" placeholder="Search for..."/>                                        
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
                         </div>
-
-                        <div class="title_right">
-                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <p:inputText type="text" class="form-control" placeholder="Search for..."/>
-                                    <!--<input type="text" class="form-control" placeholder="Search for..."/>-->
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="row">
-                    <!--<b:row>-->
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Plain Page</h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <h:form>
-                                        <p:inputText class="form-control col-md-7 col-xs-12" ></p:inputText>
-                                    </h:form>
-                                </div>
-                            </div>
-                        </div>
-                    <!--</b:row>-->
                     </div>
                 </div>
             </div>
-            </ui:define>
 
-        </ui:composition>
+            <div class="clearfix"></div>
 
-    </body>
+            <div class="row">
+                <!--<b:row>-->
+
+                <div class="col-md-6  col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Productos LavApp</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>                                           
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <h:form id="formRegistroProductos" class="form-horizontal form-group input_mask">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtNombreProducto">Nombre del Producto</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <p:inputText class="form-control" required="true" 
+                                                 placeholder="nombre del Producto..." type="text"
+                                                 id="txtNombreProducto" value="#{ProductoCT.producto.nombre}"/>                             
+
+                                </div>
+
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtDescProducto">Descripción del Producto</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <p:inputTextarea class="form-control" required="true" 
+                                                     placeholder="Descripcion del Producto..."  id="txtAreaDescProducto" value="#{ProductoCT.producto.descripcion}"/>                             
+
+                                </div>
+
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtIDSubServicio">ID de SubServicio</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <p:inputText class="form-control" required="true" 
+                                                 placeholder="nombre del Producto..." type="text"
+                                                 id="txtIdSubServicio" value="#{ProductoCT.producto.subServicio.idSubServicio}"/>                             
+
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <p:commandButton class="btn btn-primary btn-left" value="cancelar"/>
+                                    <p:commandButton type="submit" form=":formRegistroProductos"  update=":formRegistroProductos :formListaProductos" actionListener="#{ProductoCT.registrar()}"  value="Registrar" class="btn btn-success btn-rigth" ajax="false" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6  col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title"><!-- ETIQUETAS DEL TITULOS DEL CONTENEDOR -->
+                            <h2>CRUD Productos</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>                                        
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div><!-- ETIQUETAS DEL TITULOS DEL CONTENEDOR -->
+
+                        <div class="x_content">
+                            <h:form id="formListaProductos">
+
+                                <p:dataTable id="DTProductos" class="table-responsive table table-striped"
+                                             var="productos" value="#{productoCT.productos}">
+                                    <p:column headerText="id">
+                                        <p:outputLabel value="#{productos.idProducto}" />
+                                    </p:column>
+                                    <p:column headerText="Nombre Productos">
+                                        <p:outputLabel value="#{productos.nombre}" />
+                                    </p:column>
+                                    <p:column headerText="Descripcion Producto">
+                                        <p:outputLabel value="#{productos.descripcion}" />
+                                    </p:column>
+                                    <p:column headerText="Id subServicio">
+                                        <p:outputLabel value="#{productos.subServicio.idSubServicio}" />
+                                    </p:column>
+
+                                </p:dataTable>
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--</b:row>-->
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+
+
 </html>

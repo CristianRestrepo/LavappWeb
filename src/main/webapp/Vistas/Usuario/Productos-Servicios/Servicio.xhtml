@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="./../adminTemplate.xhtml">
 
@@ -37,36 +38,34 @@
                     <div class="x_panel">
                         <div class="x_title"><!-- CONTENIDO SUPERIOR DEL CONETENEDOR -->
                             <h2>Registrar Informacion de Servicios</h2>
-                            <ul class="nav navbar-right panel_toolbox"><!-- OPCIOINES DEL CONTENEDOR -->
+                            <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Settings 1</a>
-                                        </li>
-                                        <li><a href="#">Settings 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </li>                                        
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>
                         </div><!-- CONTENIDO SUPERIOR DEL CONETENEDOR -->
                         <div class="x_content">
-                            <h:form class="form-horizontal form-label-left input_mask">                               
+                            
+                            <h:form id="formRegistroServicio" class="form-horizontal form-label-left input_mask">                               
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre de Servicio</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <p:inputText class="form-control" ></p:inputText>                                    
+                                    <p:inputText class="form-control" required="true" 
+                                                 placeholder="nombre del servicio..." type="text"
+                                                 id="txtNombreServicio" value="#{servicioCT.servicio.nombre}"></p:inputText>                                    
                                 </div>
                                 <br/>
                                 <div class="ln_solid-servicio "></div>
                                 <div class="col-xs-12">
-                                    <p:button class="btn btn-primary btn-left" value="cancelar"></p:button>
-                                    <p:button class="btn btn-success btn-rigth" value="enviar"></p:button>
+                                    <p:commandButton class="btn btn-primary btn-left" value="cancelar"/>
+                                    <p:commandButton class="btn btn-success btn-rigth" value="Registrar"
+                                                     type="submit" form=":formRegistroServicio" 
+                                                     update=":formRegistroServicio :formListaServicios"
+                                                     action="#{servicioCT.registrar()}"  />
                                 </div>
                             </h:form>
+                            
                         </div>
                     </div>
                 </div>
@@ -77,16 +76,7 @@
                             <h2>CRUD Servicios</h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Settings 1</a>
-                                        </li>
-                                        <li><a href="#">Settings 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </li>                                        
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                                 </li>
                             </ul>
@@ -94,21 +84,17 @@
                         </div><!-- ETIQUETAS DEL TITULOS DEL CONTENEDOR -->
 
                         <div class="x_content">
-                            <h:form>
+                            <h:form id="formListaServicios">
 
-                                <p:dataTable class="table table-striped">
+                                <p:dataTable id="DTServicios" class="table-responsive table table-striped"
+                                             var="servicios" value="#{servicioCT.servicios}">
                                     <p:column headerText="id">
-                                        <h:outputText  />
+                                        <p:outputLabel value="#{servicios.idServicio}" />
                                     </p:column>
                                     <p:column headerText="Nombre Servicio">
-                                        <h:outputText  />
+                                        <p:outputLabel value="#{servicios.nombre}" />
                                     </p:column>
-                                    <p:column headerText="Editar">
-                                        <h:outputText  />
-                                    </p:column>
-                                    <p:column headerText="Eliminar">
-                                        <h:outputText  />
-                                    </p:column>
+
                                 </p:dataTable>
 
                             </h:form>
