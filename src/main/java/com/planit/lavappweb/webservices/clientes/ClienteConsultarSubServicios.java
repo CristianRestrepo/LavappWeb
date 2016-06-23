@@ -5,19 +5,16 @@
  */
 package com.planit.lavappweb.webservices.clientes;
 
-import com.planit.lavappweb.modelos.SubServicio_TO;
-import java.util.List;
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
 /**
- * Jersey REST client generated for REST resource:we
- * [consultarSubServicios_SP]<br>
+ * Jersey REST client generated for REST resource:we [consultarSubServicios]<br>
  * USAGE:
  * <pre>
- *        ClienteConsultarSubServicio_SP client = new ClienteConsultarSubServicio_SP();
+ *        ClienteConsultarSubServicios client = new ClienteConsultarSubServicios();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -25,15 +22,15 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
  *
  * @author SISTEMAS
  */
-public class ClienteConsultarSubServicio_SP {
+public class ClienteConsultarSubServicios {
     private WebTarget webTarget;
     private Client client;
     private static final String BASE_URI = "http://localhost:8084/LavappService/webresources/";
 
-    public ClienteConsultarSubServicio_SP() {
+    public ClienteConsultarSubServicios() {
 //        client = javax.ws.rs.client.ClientBuilder.newClient();
         client = ResteasyClientBuilder.newBuilder().build();
-        webTarget = client.target(BASE_URI).path("consultarSubServicios_SP");
+        webTarget = client.target(BASE_URI).path("consultarSubServicios");
     }
 
     /**
@@ -46,10 +43,6 @@ public class ClienteConsultarSubServicio_SP {
 
     public void close() {
         client.close();
-    }
-
-    public List<SubServicio_TO> consultarSubServicios(Class<List> aClass, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

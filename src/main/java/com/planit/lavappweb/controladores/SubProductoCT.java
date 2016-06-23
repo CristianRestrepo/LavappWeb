@@ -7,10 +7,13 @@ package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.modelos.Servicio_TO;
 import com.planit.lavappweb.modelos.SubProducto_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServicioSubProductos;
 import com.planit.lavappweb.webservices.implementaciones.ServicioSubServicio;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -20,20 +23,23 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "subProductoCT")
 @ViewScoped
-public class SubProductoCT {
+@ManagedBean
+public class SubProductoCT implements Serializable{
 
     private SubProducto_TO subproducto;
     private List<SubProducto_TO> subproductos;
+    private ServicioSubProductos clienteSubProducto;
 
     public SubProductoCT() {
         subproducto = new SubProducto_TO();
         subproductos = new ArrayList<>();
-
+        clienteSubProducto = new ServicioSubProductos();
     }
 
     @PostConstruct
     public void init() {
-
+        
+        subproductos = clienteSubProducto.consultarSubProductos();
     }
 
     //Getter & Setter
@@ -53,8 +59,21 @@ public class SubProductoCT {
         this.subproductos = subproductos;
     }
 
+    public ServicioSubProductos getClienteSubProducto() {
+        return clienteSubProducto;
+    }
+
+    public void setClienteSubProducto(ServicioSubProductos clienteSubProducto) {
+        this.clienteSubProducto = clienteSubProducto;
+    }
+
     //Metodos
     public void registrar() {
+        try {
+            clienteSubProducto.registrarSubproductos(subproducto.getNombre(), subproducto.getDescripcion(), subproducto.getProducto().getIdProducto());
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public void modificar() {

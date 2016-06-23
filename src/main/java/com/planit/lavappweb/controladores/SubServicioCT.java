@@ -5,24 +5,24 @@
  */
 package com.planit.lavappweb.controladores;
 
-import com.planit.lavappweb.modelos.Servicio_TO;
 import com.planit.lavappweb.modelos.SubServicio_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServicioSubServicio;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 /**
  *
- * @author Desarrollo_Planit
+ * @author SISTEMAS
  */
 @Named(value = "subServicioCT")
 @ViewScoped
 @ManagedBean
-public class SubServicioCT {
+public class SubServicioCT implements Serializable {
 
     private SubServicio_TO subServicio;
     private List<SubServicio_TO> subServicios;
@@ -30,14 +30,15 @@ public class SubServicioCT {
 
     public SubServicioCT() {
         subServicio = new SubServicio_TO();
-        subServicios = new ArrayList<>();
+        subServicios = new ArrayList<SubServicio_TO>();
         serviceSubServicio = new ServicioSubServicio();
-
     }
 
     @PostConstruct
     public void init() {
+        subServicio = new SubServicio_TO();
         subServicios = serviceSubServicio.consultarSubServicios();
+
     }
 
     //Getter & Setter
@@ -57,9 +58,23 @@ public class SubServicioCT {
         this.subServicios = subServicios;
     }
 
+    public ServicioSubServicio getServiceSubServicio() {
+        return serviceSubServicio;
+    }
+
+    public void setServiceSubServicio(ServicioSubServicio serviceSubServicio) {
+        this.serviceSubServicio = serviceSubServicio;
+    }
+
     //Metodos
     public void registrar() {
-        subServicio = serviceSubServicio.registrarSubServicio(subServicio.getNombre(), subServicio.getServicio().getIdServicio());
+        try {
+//            subServicio = 
+            serviceSubServicio.registrarSubServicio(subServicio.getNombre(), subServicio.getServicio().getIdServicio());
+
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public void modificar() {
@@ -67,4 +82,5 @@ public class SubServicioCT {
 
     public void eliminar() {
     }
+
 }

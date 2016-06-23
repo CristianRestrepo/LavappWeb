@@ -10,13 +10,14 @@ package com.planit.lavappweb.modelos;
  * @author Desarrollo_Planit
  */
 public class SubProducto_TO {
-    
+
     private int idSubProducto;
     private String nombre;
     private String descripcion;
     private Producto_TO producto;
 
     public SubProducto_TO() {
+        producto = new Producto_TO();
     }
 
     public SubProducto_TO(int idSubProducto) {
@@ -25,6 +26,12 @@ public class SubProducto_TO {
 
     public SubProducto_TO(int idSubProducto, String nombre, String descripcion, Producto_TO producto) {
         this.idSubProducto = idSubProducto;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.producto = producto;
+    }
+
+    public SubProducto_TO(String nombre, String descripcion, Producto_TO producto) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.producto = producto;
@@ -61,10 +68,10 @@ public class SubProducto_TO {
     public void setProducto(Producto_TO producto) {
         this.producto = producto;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
         return "SubProducto_TO{" + "idSubProducto=" + idSubProducto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", producto=" + producto + '}';
     }
-    
+
 }

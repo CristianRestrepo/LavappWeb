@@ -9,6 +9,7 @@ import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
 /**
  * Jersey REST client generated for REST resource:we [registrarProducto]<br>
@@ -28,7 +29,8 @@ public class ClienteRegistrarProducto {
     private static final String BASE_URI = "http://localhost:8084/LavappService/webresources/";
 
     public ClienteRegistrarProducto() {
-        client = javax.ws.rs.client.ClientBuilder.newClient();
+//        client = javax.ws.rs.client.ClientBuilder.newClient();
+        client = ResteasyClientBuilder.newBuilder().build();
         webTarget = client.target(BASE_URI).path("registrarProducto");
     }
 

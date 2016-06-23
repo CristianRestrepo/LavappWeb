@@ -37,7 +37,7 @@ public class ClienteConsultarSubProductos {
      * @param responseType Class representing the response
      * @return response object (instance of responseType class)
      */
-    public <T> T consultarSubProducto(Class<T> responseType) throws ClientErrorException {
+    public <T> T consultarSubProductos(Class<T> responseType) throws ClientErrorException {
         return webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 

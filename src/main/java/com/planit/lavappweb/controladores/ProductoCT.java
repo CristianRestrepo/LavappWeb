@@ -7,6 +7,7 @@ package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.modelos.Producto_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServicioProducto;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -21,7 +22,7 @@ import javax.faces.view.ViewScoped;
 @Named(value = "ProductoCT")
 @ViewScoped
 @ManagedBean
-public class ProductoCT {
+public class ProductoCT implements Serializable{
     
     private Producto_TO producto;
     private List<Producto_TO> productos;
@@ -66,7 +67,11 @@ public class ProductoCT {
     
     //Metodos
     public void registrar() {
-       producto = servicioProduct.registrarProducto(producto.getNombre(), producto.getDescripcion(), producto.getSubServicio().getIdSubServicio());
+        try {
+           producto = servicioProduct.registrarProducto(producto.getNombre(), producto.getDescripcion(), producto.getSubServicio().getIdSubServicio());            
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public void modificar() {

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
-      xmlns:h="http://java.sun.com/jsf/html"     
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
@@ -47,12 +47,14 @@
                         </div><!-- CONTENIDO SUPERIOR DEL CONETENEDOR -->
                         <div class="x_content">
                             
-                            <h:form id="formRegistroServicio" class="form-horizontal form-label-left input_mask">                               
+                            <h:form id="formRegistroServicio" class="form-horizontal form-label-left input_mask">                  
+             
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre de Servicio</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <p:inputText class="form-control" required="true" 
                                                  placeholder="nombre del servicio..." type="text"
-                                                 id="txtNombreServicio" value="#{servicioCT.servicio.nombre}"></p:inputText>                                    
+                                                 id="txtNombreServicio" value="#{servicioCT.servicio.nombre}"></p:inputText>       
+                             
                                 </div>
                                 <br/>
                                 <div class="ln_solid-servicio "></div>
@@ -107,3 +109,4 @@
     </ui:composition>
 
 </html>
+
