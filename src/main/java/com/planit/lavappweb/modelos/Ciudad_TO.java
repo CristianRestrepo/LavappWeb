@@ -82,5 +82,4 @@ public class Ciudad_TO {
     public String toString() {
         return "Ciudad_TO{" + "idCiudad=" + idCiudad + ", nombre=" + nombre + ", departamento=" + departamento + '}';
     }
-
 }

@@ -47,11 +47,12 @@ public class Barrio_TO {
      * Columna idEstrato
      */
     private Estrato_TO estrato;
-    
-    
-    // Constructores
 
+    // Constructores
     public Barrio_TO() {
+        this.localidad = new Localidad_TO();
+        this.Zona = new Zona_TO();
+        this.estrato = new Estrato_TO();
     }
 
     // Constructor General
@@ -65,11 +66,9 @@ public class Barrio_TO {
 
     public Barrio_TO(int idBarrios) {
         this.idBarrios = idBarrios;
-    }  
-       
-    
-    // Getter and Setter
+    }
 
+    // Getter and Setter
     public int getIdBarrios() {
         return idBarrios;
     }
@@ -114,5 +113,5 @@ public class Barrio_TO {
     public String toString() {
         return "Barrio_TO{" + "idBarrios=" + idBarrios + ", nombre=" + nombre + ", localidad=" + localidad + ", Zona=" + Zona + ", estrato=" + estrato + '}';
     }
-        
+
 }

@@ -15,6 +15,41 @@
             <to-view-id>/Vistas/Cliente/Pedidos/Pedidos.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>Pais</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Pais.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Departamento</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Departamento.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Ciudad</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Ciudad.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Localidad</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Localidad.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Barrio</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Barrio.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Zona</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Zona.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Estrato</from-outcome>
+            <to-view-id>/Vistas/Usuario/Ubicaciones/Estrato.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     
 </faces-config>

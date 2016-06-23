@@ -5,11 +5,13 @@
  */
 package com.planit.lavappweb.controladores;
 
+import static com.planit.lavappweb.metodos.Configuracion.operacion;
 import com.planit.lavappweb.modelos.Localidad_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosLocalidad;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -19,16 +21,20 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "localidadCT")
 @ViewScoped
+@ManagedBean
 public class LocalidadCT {
 
     private Localidad_TO localidad;
     private List<Localidad_TO> localidades;
     protected ServiciosLocalidad servicios;
+    
+    private String nombreOperacion;
 
     public LocalidadCT() {
         localidad = new Localidad_TO();
         localidades = new ArrayList<>();
         servicios = new ServiciosLocalidad();
+        nombreOperacion = "Registrar";
     }
 
     @PostConstruct
@@ -53,7 +59,16 @@ public class LocalidadCT {
         this.localidades = localidades;
     }
 
-    //Metodos
+    public String getNombreOperacion() {
+        return nombreOperacion;
+    }
+
+    public void setNombreOperacion(String nombreOperacion) {
+        this.nombreOperacion = nombreOperacion;
+    }    
+    
+
+    //CRUD
     public void registrar() {
         localidad = servicios.registrarLocalidad(localidad.getNombre(), localidad.getCiudad().getIdCiudad());
         localidades = servicios.consultarLocalidades();
@@ -67,5 +82,25 @@ public class LocalidadCT {
     public void eliminar() {
         localidad = servicios.eliminarLocalidad(localidad.getIdLocalidad());
         localidades = servicios.consultarLocalidades();
+    }
+    
+    //Metodos
+    //Metodos Propios
+    public void metodo() {
+        if (operacion == 0) {
+            registrar();
+        } else if (operacion == 1) {
+            modificar();
+            //Reiniciamos banderas
+            nombreOperacion = "Registrar";
+            operacion  = 0;
+        }
+    }
+
+    public void seleccionarCRUD(int i) {
+        operacion = i;
+        if (operacion == 1) {            
+            nombreOperacion = "Modificar";
+        }
     }
 }

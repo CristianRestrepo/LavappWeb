@@ -10,7 +10,9 @@ import com.planit.lavappweb.modelos.Ciudad_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosCiudad;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -20,6 +22,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "ciudadCT")
 @ViewScoped
+@ManagedBean
 public class CiudadCT {
 
     private Ciudad_TO ciudad;

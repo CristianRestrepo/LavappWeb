@@ -3,14 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
         <ui:composition template="./../adminTemplate.xhtml">
 
             <ui:define name="content">
-                <div class="right_col">
+                <div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
                             <div class="x_panel">
@@ -28,15 +29,15 @@
                                     <h:form id="formularioRegistro" class="form-horizontal"> 
                                         <div class="form-group">
                                             <label class="control-label" for="txtNombreCiudad">Nombre<span class="required">*</span></label>
-                                            <p:inputText class="form-control " required="true" placeholder="Nombre de la zona" type="text" id="txtNombreCiudad"/>
+                                            <p:inputText class="form-control" value="#{zonaCT.zona.nombre}" required="true" placeholder="Nombre de la zona" type="text" id="txtNombreCiudad"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="txtDescripcion">Descripcion<span class="required">*</span></label>
-                                            <p:inputTextarea rows="3" class="form-control " required="true" placeholder="Descripcion" id="txtDescripcion"/>
+                                            <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control " required="true" placeholder="Descripcion" id="txtDescripcion"/>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
-                                        <p:commandButton type="submit" form="formularioRegistro" update="formularioRegistro" value="Registrar" class="btn btn-success"/>
+                                        <p:commandButton type="submit" form="formularioRegistro" update="formularioRegistro" action="#{zonaCT.metodo()}" value="#{zonaCT.nombreOperacion}" class="btn btn-success"/>
                                     </h:form>
                                 </div>
                             </div>
@@ -60,19 +61,25 @@
                                         <div class="ln_solid"></div>
                                         <p:dataTable style="width: 100%" var="zona" value="#{zonaCT.zonas}" class="table-responsive table table-striped">
                                             <p:column headerText="Nombre">
-
+                                                <p:outputLabel value="#{zona.nombre}"/>
                                             </p:column>
 
                                             <p:column headerText="Descripcion">
-
+                                                <p:outputLabel value="#{zona.descripcion}"/>
                                             </p:column>
                                             
-                                            <p:column width="15px" headerText="">
-                                                <p:commandButton class="btn btn-info"/>
+                                            <p:column style="width: 60px" headerText="">
+                                                <p:commandLink style="color: white; width: 100%" process="@this" update=":formularioRegistro" action="#{zonaCT.seleccionarCRUD(1)}" title="Modificar" class="btn btn-block btn-info">
+                                                    <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
+                                                    <i class="fa fa-pencil"/> 
+                                                </p:commandLink>
                                             </p:column>
 
-                                            <p:column width="15px" headerText="">
-                                                <p:commandButton class="btn btn-danger"/>
+                                            <p:column style="width: 60px" headerText="">
+                                               <p:commandLink style="color: white; width: 100%" action="#{zonaCT.eliminar()}" process="@this" update="@form" title="Eliminar" class="btn btn-block btn-danger">
+                                                   <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
+                                                    <i class="fa fa-trash"/>                                                     
+                                                </p:commandLink>
                                             </p:column>
                                         </p:dataTable>
                                     </h:form>
