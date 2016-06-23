@@ -102,4 +102,11 @@ public class CiudadCT {
             nombreOperacion = "Modificar";
         }
     }
+    
+    public void cancelar(){
+        ciudad = new Ciudad_TO();
+        ciudades = servicios.consultarCiudades();
+        operacion = 0;
+        nombreOperacion = "Registrar";
+    }
 }

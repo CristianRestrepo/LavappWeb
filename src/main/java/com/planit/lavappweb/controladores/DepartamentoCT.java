@@ -6,6 +6,7 @@
 package com.planit.lavappweb.controladores;
 
 import static com.planit.lavappweb.metodos.Configuracion.operacion;
+import com.planit.lavappweb.modelos.Barrio_TO;
 import com.planit.lavappweb.modelos.Departamento_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosDepartamento;
 import java.util.ArrayList;
@@ -68,7 +69,6 @@ public class DepartamentoCT {
         this.nombreOperacion = nombreOperacion;
     }
 
-    
     //CRUD    
     public void registrar() {
         departamento = servicios.registrarDepartamento(departamento.getNombre(), departamento.getPais().getIdPais());
@@ -88,10 +88,10 @@ public class DepartamentoCT {
     //Metodos
     public void metodo() {
         if (operacion == 0) {
-           registrar();
+            registrar();
         } else if (operacion == 1) {
-           modificar();
-           //Reiniciamos banderas
+            modificar();
+            //Reiniciamos banderas
             nombreOperacion = "Registrar";
             operacion = 0;
         }
@@ -99,8 +99,15 @@ public class DepartamentoCT {
 
     public void seleccionarCRUD(int i) {
         operacion = i;
-        if(operacion == 1){
+        if (operacion == 1) {
             nombreOperacion = "Modificar";
         }
+    }
+
+    public void cancelar() {
+        departamento = new Departamento_TO();
+        departamentos = servicios.consultarDepartamentos();
+        operacion = 0;
+        nombreOperacion = "Registrar";
     }
 }

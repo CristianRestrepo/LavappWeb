@@ -100,4 +100,11 @@ public class ZonaCT {
             nombreOperacion = "Modificar";
         }
     }
+    
+    public void cancelar(){
+        zona = new Zona_TO();
+        zonas = servicios.consultarZonas();
+        operacion = 0;
+        nombreOperacion = "Registrar";
+    }
 }

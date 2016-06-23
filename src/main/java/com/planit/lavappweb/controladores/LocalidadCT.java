@@ -103,4 +103,11 @@ public class LocalidadCT {
             nombreOperacion = "Modificar";
         }
     }
+    
+    public void cancelar(){
+        localidad = new Localidad_TO();
+        localidades = servicios.consultarLocalidades();
+        operacion = 0;
+        nombreOperacion = "Registrar";
+    }
 }

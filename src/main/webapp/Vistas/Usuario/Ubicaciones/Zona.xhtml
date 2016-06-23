@@ -36,7 +36,7 @@
                                             <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control " required="true" placeholder="Descripcion" id="txtDescripcion"/>
                                         </div>
                                         <div class="ln_solid"></div>
-                                        <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
+                                        <p:commandButton value="Cancelar" update=":formularioRegistro :formularioListaZonas" action="#{zonaCT.cancelar()}" immediate="true" process="@this" class="btn btn-primary"/>
                                         <p:commandButton type="submit" form="formularioRegistro" update="formularioRegistro" action="#{zonaCT.metodo()}" value="#{zonaCT.nombreOperacion}" class="btn btn-success"/>
                                     </h:form>
                                 </div>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="x_content">
-                                    <h:form>
+                                    <h:form id="formularioListaZonas">
                                         <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
                                         <div class="ln_solid"></div>
                                         <p:dataTable style="width: 100%" var="zona" value="#{zonaCT.zonas}" class="table-responsive table table-striped">

@@ -36,7 +36,7 @@
                                             </p:selectOneMenu>
                                         </div>
                                         <div class="ln_solid"></div>
-                                        <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
+                                        <p:commandButton value="Cancelar"  update=":formularioRegistro :formularioListaCiudades" immediate="true" process="@this" action="#{ciudadCT.cancelar()}"  class="btn btn-primary"/>
                                         <p:commandButton type="submit" action="#{ciudadCT.metodo()}" form="formularioRegistro" update="formularioRegistro" value="#{ciudadCT.nombreOperacion}" class="btn btn-success"/>
                                     </h:form>
                                 </div>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="x_content">
-                                    <h:form>
+                                    <h:form id="formularioListaCiudades">
                                         <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
                                         <div class="ln_solid"></div>
                                         <p:dataTable style="width: 100%" var="ciudad" value="#{ciudadCT.ciudades}" class="table-responsive table table-striped">

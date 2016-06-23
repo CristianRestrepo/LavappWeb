@@ -100,5 +100,12 @@ public class EstratoCT {
             nombreOperacion = "Modificar";
         }
     }
+    
+    public void cancelar(){
+        estrato = new Estrato_TO();
+        estratos = servicios.consultarEstratos();
+        operacion = 0;
+        nombreOperacion = "Registrar";
+    }
 
 }

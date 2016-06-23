@@ -36,7 +36,7 @@
                                             </p:selectOneMenu>
                                         </div>
                                         <div class="ln_solid"></div>
-                                        <p:commandButton value="Cancelar" class="btn btn-primary"/>
+                                        <p:commandButton immediate="true" process="@this" update=":formularioRegistro :formularioListaDepartamentos" action="#{departamentoCT.cancelar()}" value="Cancelar" class="btn btn-primary"/>
                                         <p:commandButton type="submit" ajax="false" update=":formularioRegistro :formularioListaDepartamentos:DTDepartamentos" value="#{departamentoCT.nombreOperacion}" action="#{departamentoCT.metodo()}" class="btn btn-success"/>
                                     </h:form>
                                 </div>

@@ -7,6 +7,7 @@ package com.planit.lavappweb.controladores;
 
 import com.planit.lavappweb.metodos.Configuracion;
 import static com.planit.lavappweb.metodos.Configuracion.operacion;
+import com.planit.lavappweb.modelos.Barrio_TO;
 import com.planit.lavappweb.modelos.Pais_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosPais;
 import java.util.ArrayList;
@@ -32,19 +33,19 @@ public class PaisCT {
 
     //Variables   
     private String nombreOperacion;
-    
+
     public PaisCT() {
         pais = new Pais_TO();
         paises = new ArrayList<>();
         servicios = new ServiciosPais();
-        nombreOperacion = "Registrar";      
+        nombreOperacion = "Registrar";
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         paises = servicios.consultarPaises();
     }
-    
+
     //Getters & Setter
     public Pais_TO getPais() {
         return pais;
@@ -75,34 +76,30 @@ public class PaisCT {
         for (int i = 0; i < paises.size(); i++) {
             nombrepaises.add(paises.get(i).getNombre());
         }
-        return nombrepaises;        
+        return nombrepaises;
     }
 
     public void setNombrepaises(List<String> nombrepaises) {
         this.nombrepaises = nombrepaises;
     }
-    
-    
-    
-    
+
     //CRUD
-    public void registrar(){
-       pais = servicios.registrarPais(pais.getNombre());
-       paises = servicios.consultarPaises();
+    public void registrar() {
+        pais = servicios.registrarPais(pais.getNombre());
+        paises = servicios.consultarPaises();
     }
-    
-    public void modificar(){
+
+    public void modificar() {
         pais = servicios.modificarPais(pais.getIdPais(), pais.getNombre());
         paises = servicios.consultarPaises();
     }
-    
-    public void eliminar(){
+
+    public void eliminar() {
         pais = servicios.eliminarPais(pais.getIdPais());
         paises = servicios.consultarPaises();
     }
-    
-        
-     //Metodos Propios
+
+    //Metodos Propios
     public void metodo() {
         if (operacion == 0) {
             registrar();
@@ -110,14 +107,21 @@ public class PaisCT {
             modificar();
             //Reiniciamos banderas
             nombreOperacion = "Registrar";
-            operacion  = 0;
+            operacion = 0;
         }
     }
 
     public void seleccionarCRUD(int i) {
         operacion = i;
-        if (operacion == 1) {            
+        if (operacion == 1) {
             nombreOperacion = "Modificar";
         }
+    }
+
+    public void cancelar() {
+        pais = new Pais_TO();
+        paises = servicios.consultarPaises();
+        operacion = 0;
+        nombreOperacion = "Registrar";
     }
 }

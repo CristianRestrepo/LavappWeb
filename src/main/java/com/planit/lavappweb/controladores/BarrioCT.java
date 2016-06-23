@@ -107,4 +107,11 @@ public class BarrioCT {
             nombreOperacion = "Modificar";
         }
     }
+    
+    public void cancelar(){
+        barrio = new Barrio_TO();
+        barrios = servicios.consultarBarrios();
+        operacion = 0;
+        nombreOperacion = "Registrar";
+    }
 }

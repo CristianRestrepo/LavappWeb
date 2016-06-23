@@ -30,8 +30,8 @@
                                             <p:inputText class="form-control " required="true" placeholder="Nombre del pais" type="text" id="txtNombrePais" value="#{paisCT.pais.nombre}"/>
                                         </div>
                                         <div class="ln_solid"></div>
-                                        <p:commandButton value="Cancelar"  form="formularioRegistro"  class="btn btn-primary"/>
-                                        <p:commandButton type="submit" form=":formularioRegistro" update=":formularioRegistro :formularioListaPaises:DTPaises" action="#{paisCT.metodo()}" value="#{paisCT.nombreOperacion}" class="btn btn-success"/>
+                                        <p:commandButton value="Cancelar" update=":formularioRegistro :formularioListaPaises" action="#{paisCT.cancelar()}" class="btn btn-primary"/>
+                                        <p:commandButton type="submit" update=":formularioRegistro :formularioListaPaises:DTPaises" action="#{paisCT.metodo()}" value="#{paisCT.nombreOperacion}" class="btn btn-success"/>
                                     </h:form>
                                 </div>
                             </div>
