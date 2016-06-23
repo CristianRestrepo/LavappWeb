@@ -1,17 +1,114 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <body>
 
-        <ui:composition template="./../adminTemplate.xhtml">
+    <ui:composition template="./../adminTemplate.xhtml">
 
-            <ui:define name="content">
-                content
-            </ui:define>
+        <ui:define name="content">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>SubServicios LavApp <small> Subservicios de lavanderia a domicilio.</small></h3>
+                </div>
 
-        </ui:composition>
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <p:inputText type="text" class="form-control" placeholder="Buscar aquí..."/>
+                            <!--<input type="text" class="form-control" placeholder="Search for..."/>-->
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"> Ir !</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    </body>
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <!--<b:row>-->
+                <div class="col-md-6  col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title"><!-- CONTENIDO SUPERIOR DEL CONETENEDOR -->
+                            <h2>Registrar Informacion Para Subservicios</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>                                        
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div><!-- CONTENIDO SUPERIOR DEL CONETENEDOR -->
+                        <div class="x_content">
+                            <h:form id="formRegistroSubServicio" class="form-horizontal form-group input_mask">                               
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtNombreSubServicio">Nombre de SubServicio</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <p:inputText class="form-control" required="true" 
+                                                 placeholder="nombre del subservicio..." type="text"
+                                                 id="txtNombreSubServicio" value="#{subServicioCT.subServicio.nombre}"/>                             
+
+                                </div>
+                                <br/>
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">ID del Servicio asociado</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12" for="txtIdServicioSub">
+                                    <p:inputText class="form-control" required="true" 
+                                                 placeholder="numero de id del Servicio..." type="text"
+                                                 id="txtIdServicioSub" value="#{subServicioCT.subServicio.servicio.idServicio}"/>   
+                                </div>
+                                <br/>
+                                <div class="ln_solid-servicio "></div>
+                                <div class="col-xs-12">
+                                    <p:commandButton class="btn btn-primary btn-left" value="cancelar"/>
+                                    <p:commandButton type="submit" form=":formRegistroSubServicio"  update=":formRegistroSubServicio :formListaSubServicios" actionListener="#{subServicioCT.registrar()}"  value="Registrar" class="btn btn-success btn-rigth" ajax="false" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title"><!-- ETIQUETAS DEL TITULOS DEL CONTENEDOR -->
+                            <h2>CRUD Servicios</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>                                        
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div><!-- ETIQUETAS DEL TITULOS DEL CONTENEDOR -->
+
+                        <div class="x_content">
+                            <h:form id="formListaSubServicios">
+
+                                <p:dataTable id="DTSubServicios" class="table-responsive table table-striped"
+                                             var="subServicios" value="#{subServicioCT.subServicios}">
+                                    <p:column headerText="id">
+                                        <p:outputLabel value="#{subServicios.idSubServicio}" />
+                                    </p:column>
+                                    <p:column headerText="Nombre Servicio">
+                                        <p:outputLabel value="#{subServicios.nombre}" />
+                                    </p:column>
+                                    <p:column headerText="Id Servicio">
+                                        <p:outputLabel value="#{subServicios.idSubServicio}" />
+                                    </p:column>
+
+                                </p:dataTable>
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+                <!--</b:row>-->
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
 </html>

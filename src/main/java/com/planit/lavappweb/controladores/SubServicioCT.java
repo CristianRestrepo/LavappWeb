@@ -5,10 +5,13 @@
  */
 package com.planit.lavappweb.controladores;
 
+import com.planit.lavappweb.modelos.Servicio_TO;
 import com.planit.lavappweb.modelos.SubServicio_TO;
+import com.planit.lavappweb.webservices.implementaciones.ServicioSubServicio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -18,22 +21,26 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "subServicioCT")
 @ViewScoped
+@ManagedBean
 public class SubServicioCT {
 
     private SubServicio_TO subServicio;
     private List<SubServicio_TO> subServicios;
-    
+    private ServicioSubServicio serviceSubServicio;
+
     public SubServicioCT() {
         subServicio = new SubServicio_TO();
         subServicios = new ArrayList<>();
-    }
-    
-    @PostConstruct
-    public void init(){
-    }
-    
-    //Getter & Setter
+        serviceSubServicio = new ServicioSubServicio();
 
+    }
+
+    @PostConstruct
+    public void init() {
+        subServicios = serviceSubServicio.consultarSubServicios();
+    }
+
+    //Getter & Setter
     public SubServicio_TO getSubServicio() {
         return subServicio;
     }
@@ -49,14 +56,15 @@ public class SubServicioCT {
     public void setSubServicios(List<SubServicio_TO> subServicios) {
         this.subServicios = subServicios;
     }
-    
+
     //Metodos
-    public void registrar(){
+    public void registrar() {
+        subServicio = serviceSubServicio.registrarSubServicio(subServicio.getNombre(), subServicio.getServicio().getIdServicio());
     }
-    
-    public void modificar(){
+
+    public void modificar() {
     }
-    
-    public void eliminar(){
+
+    public void eliminar() {
     }
 }
