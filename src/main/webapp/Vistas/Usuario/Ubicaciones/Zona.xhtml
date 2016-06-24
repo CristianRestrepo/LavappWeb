@@ -27,17 +27,18 @@
                                 </div>
                                 <div class="x_content">
                                     <h:form id="formularioRegistro" class="form-horizontal"> 
+                                        <p:growl id="msg" autoUpdate="true" life="2500"/>
                                         <div class="form-group">
                                             <label class="control-label" for="txtNombreCiudad">Nombre<span class="required">*</span></label>
-                                            <p:inputText class="form-control" value="#{zonaCT.zona.nombre}" required="true" placeholder="Nombre de la zona" type="text" id="txtNombreCiudad"/>
+                                            <p:inputText class="form-control" value="#{zonaCT.zona.nombre}" required="true" requiredMessage="Ingrese nombre" placeholder="Nombre de la zona" type="text" id="txtNombreCiudad"/>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="txtDescripcion">Descripcion<span class="required">*</span></label>
-                                            <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control " required="true" placeholder="Descripcion" id="txtDescripcion"/>
+                                            <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control " requiredMessage="Ingrese descripcion" required="true" placeholder="Descripcion" id="txtDescripcion"/>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <p:commandButton value="Cancelar" update=":formularioRegistro :formularioListaZonas" action="#{zonaCT.cancelar()}" immediate="true" process="@this" class="btn btn-primary"/>
-                                        <p:commandButton type="submit" form="formularioRegistro" update="formularioRegistro" action="#{zonaCT.metodo()}" value="#{zonaCT.nombreOperacion}" class="btn btn-success"/>
+                                        <p:commandButton type="submit" form="formularioRegistro" update=":formularioRegistro :formularioListaZonas" action="#{zonaCT.metodo()}" value="#{zonaCT.nombreOperacion}" class="btn btn-success"/>
                                     </h:form>
                                 </div>
                             </div>
@@ -60,6 +61,10 @@
                                         <p:inputText style="width: 100%" placeholder="Buscar..." class="form-control"></p:inputText>
                                         <div class="ln_solid"></div>
                                         <p:dataTable style="width: 100%" var="zona" value="#{zonaCT.zonas}" class="table-responsive table table-striped">
+                                            <p:column headerText="id">
+                                                <p:outputLabel value="#{zona.idZona}"/>
+                                            </p:column>
+
                                             <p:column headerText="Nombre">
                                                 <p:outputLabel value="#{zona.nombre}"/>
                                             </p:column>
@@ -67,7 +72,7 @@
                                             <p:column headerText="Descripcion">
                                                 <p:outputLabel value="#{zona.descripcion}"/>
                                             </p:column>
-                                            
+
                                             <p:column style="width: 60px" headerText="">
                                                 <p:commandLink style="color: white; width: 100%" process="@this" update=":formularioRegistro" action="#{zonaCT.seleccionarCRUD(1)}" title="Modificar" class="btn btn-block btn-info">
                                                     <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
@@ -76,8 +81,8 @@
                                             </p:column>
 
                                             <p:column style="width: 60px" headerText="">
-                                               <p:commandLink style="color: white; width: 100%" action="#{zonaCT.eliminar()}" process="@this" update="@form" title="Eliminar" class="btn btn-block btn-danger">
-                                                   <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
+                                                <p:commandLink style="color: white; width: 100%" action="#{zonaCT.eliminar()}" process="@this" update="@form" title="Eliminar" class="btn btn-block btn-danger">
+                                                    <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
                                                     <i class="fa fa-trash"/>                                                     
                                                 </p:commandLink>
                                             </p:column>
