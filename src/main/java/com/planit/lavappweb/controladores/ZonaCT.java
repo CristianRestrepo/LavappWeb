@@ -11,17 +11,12 @@ import com.planit.lavappweb.webservices.implementaciones.ServiciosZona;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "zonaCT")
-@ViewScoped
-@ManagedBean
+
 public class ZonaCT {
 
     private Zona_TO zona;

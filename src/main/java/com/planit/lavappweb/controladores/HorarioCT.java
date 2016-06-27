@@ -5,20 +5,16 @@
  */
 package com.planit.lavappweb.controladores;
 
-import com.planit.lavappweb.modelos.Historico_TO;
 import com.planit.lavappweb.modelos.Horario_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "horarioCT")
-@ViewScoped
+
 public class HorarioCT {
 
     private Horario_TO horario;

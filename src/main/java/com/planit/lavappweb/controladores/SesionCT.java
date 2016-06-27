@@ -10,20 +10,15 @@ import static com.planit.lavappweb.metodos.Sesion.cerrarHttpSesion;
 import static com.planit.lavappweb.metodos.Sesion.iniciarHttpSesion;
 import com.planit.lavappweb.modelos.Usuario_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosUsuario;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "sesionCT")
-@SessionScoped
-@ManagedBean
+
 public class SesionCT implements Serializable {
 
     //variables

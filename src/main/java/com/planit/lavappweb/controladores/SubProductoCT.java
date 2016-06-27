@@ -5,25 +5,18 @@
  */
 package com.planit.lavappweb.controladores;
 
-import com.planit.lavappweb.modelos.Servicio_TO;
 import com.planit.lavappweb.modelos.SubProducto_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServicioSubProductos;
-import com.planit.lavappweb.webservices.implementaciones.ServicioSubServicio;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "subProductoCT")
-@ViewScoped
-@ManagedBean
+
 public class SubProductoCT implements Serializable{
 
     private SubProducto_TO subproducto;

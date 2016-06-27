@@ -6,23 +6,17 @@
 package com.planit.lavappweb.controladores;
 
 import static com.planit.lavappweb.metodos.Configuracion.operacion;
-import com.planit.lavappweb.modelos.Barrio_TO;
 import com.planit.lavappweb.modelos.Departamento_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosDepartamento;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "departamentoCT")
-@ViewScoped
-@ManagedBean
+
 public class DepartamentoCT {
 
     private Departamento_TO departamento;

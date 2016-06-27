@@ -9,15 +9,12 @@ import com.planit.lavappweb.modelos.Factura_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "facturaCT")
-@ViewScoped
+
 public class FacturaCT {
 
     private Factura_TO factura;

@@ -9,15 +9,12 @@ import com.planit.lavappweb.modelos.DescripcionPedido_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "descripcionPedidoCT")
-@ViewScoped
+
 public class DescripcionPedidoCT {
 
     private DescripcionPedido_TO productoPedido;

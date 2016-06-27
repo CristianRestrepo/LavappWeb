@@ -9,15 +9,12 @@ import com.planit.lavappweb.modelos.Jornada_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "jornadaCT")
-@ViewScoped
+
 public class JornadaCT {
 
     private Jornada_TO jornada;

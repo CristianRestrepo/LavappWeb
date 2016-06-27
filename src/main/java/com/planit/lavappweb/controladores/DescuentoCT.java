@@ -8,15 +8,12 @@ package com.planit.lavappweb.controladores;
 import com.planit.lavappweb.modelos.Descuento_TO;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "descuentoCT")
-@ViewScoped
+
 public class DescuentoCT {
 
     private Descuento_TO descuento;

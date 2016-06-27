@@ -61,7 +61,8 @@
 
                                             <p:column style="width: 60px" headerText="">
                                                 <p:commandLink style="color: white; width: 100%" process="@this" update=":formularioRegistro" action="#{paisCT.seleccionarCRUD(1)}" title="Modificar" class="btn btn-block btn-info">
-                                                    <f:setPropertyActionListener value="#{pais}" target="#{paisCT.pais}"/>
+                                                    <f:setPropertyActionListener value="#{pais.idPais}" target="#{paisCT.pais.idPais}"/>
+                                                    <f:setPropertyActionListener value="#{pais.nombre}" target="#{paisCT.pais.nombre}"/>
                                                     <i class="fa fa-pencil"/> 
                                                 </p:commandLink>
                                             </p:column>

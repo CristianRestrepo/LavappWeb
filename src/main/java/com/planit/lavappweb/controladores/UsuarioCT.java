@@ -9,11 +9,7 @@ import com.planit.lavappweb.modelos.Usuario_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
-@Named(value = "usuarioCT")
-@ViewScoped
 public class UsuarioCT {
 
     private Usuario_TO usuario;

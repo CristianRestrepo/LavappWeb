@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="txtDescripcion">Descripcion<span class="required">*</span></label>
-                                            <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control " requiredMessage="Ingrese descripcion" required="true" placeholder="Descripcion" id="txtDescripcion"/>
+                                            <p:inputTextarea rows="3" value="#{zonaCT.zona.descripcion}" class="form-control" placeholder="Descripcion" id="txtDescripcion"/>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <p:commandButton value="Cancelar" update=":formularioRegistro :formularioListaZonas" action="#{zonaCT.cancelar()}" immediate="true" process="@this" class="btn btn-primary"/>
@@ -75,7 +75,9 @@
 
                                             <p:column style="width: 60px" headerText="">
                                                 <p:commandLink style="color: white; width: 100%" process="@this" update=":formularioRegistro" action="#{zonaCT.seleccionarCRUD(1)}" title="Modificar" class="btn btn-block btn-info">
-                                                    <f:setPropertyActionListener value="#{zona}" target="#{zonaCT.zona}"/>
+                                                    <f:setPropertyActionListener value="#{zona.idZona}" target="#{zonaCT.zona.idZona}"/>
+                                                    <f:setPropertyActionListener value="#{zona.nombre}" target="#{zonaCT.zona.nombre}"/>
+                                                    <f:setPropertyActionListener value="#{zona.descripcion}" target="#{zonaCT.zona.descripcion}"/>
                                                     <i class="fa fa-pencil"/> 
                                                 </p:commandLink>
                                             </p:column>

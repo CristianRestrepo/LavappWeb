@@ -5,30 +5,22 @@
  */
 package com.planit.lavappweb.controladores;
 
-import com.planit.lavappweb.metodos.Configuracion;
 import static com.planit.lavappweb.metodos.Configuracion.operacion;
-import com.planit.lavappweb.modelos.Barrio_TO;
 import com.planit.lavappweb.modelos.Pais_TO;
 import com.planit.lavappweb.webservices.implementaciones.ServiciosPais;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "paisCT")
-@ViewScoped
-@ManagedBean
 public class PaisCT {
 
     private Pais_TO pais;
     private List<Pais_TO> paises;
-    private ServiciosPais servicios;
+    protected ServiciosPais servicios;
     private List<String> nombrepaises;
 
     //Variables   

@@ -9,15 +9,12 @@ import com.planit.lavappweb.modelos.Historico_TO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "historicoCT")
-@ViewScoped
+
 public class HistoricoCT {
 
     private Historico_TO historico;

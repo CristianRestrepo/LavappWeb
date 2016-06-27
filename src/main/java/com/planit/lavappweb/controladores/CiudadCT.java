@@ -12,17 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Desarrollo_Planit
  */
-@Named(value = "ciudadCT")
-@ViewScoped
-@ManagedBean
+
 public class CiudadCT {
 
     private Ciudad_TO ciudad;
